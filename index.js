@@ -55,6 +55,16 @@ app.put('/:Id',async(req,res)=>{
         
     }
 })
+//to get a single document
+app.get('/:id',async(req,res)=>{
+    try{
+        var data = await emp.findById(req.params.id);
+        res.send(data)
+
+    }catch (error) {
+        res.send(error)
+        
+    }})
 app.listen(port,()=>{
     console.log(`server is up and running in ${port}`)
 })
